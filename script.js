@@ -1,12 +1,16 @@
 //global variables, can be accessed by all functions
 
   //declare a variable named playerName that stores the value the player enters from a prompt
+  const playerName = prompt("Please enter your name: ")
 
   //declare a variable named playerHealth and set it equal to the number value 15
+  let playerHealth = 15;
 
   //assign a name of a monster (ex 'Werewolf') as a string to a variable named monsterName
+  const monsterName = 'Demogorgon'
 
   //declare a variable named monsterHealth and set it equal to the number value 15
+  let monsterHealth = 15;
 
 //random integer function 
 //see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -19,13 +23,16 @@ function randomNum(min, max) {
 
 function playerAttack(){
 //use randomNum to generate attack points value between 1 - 5 and save the value to a variable named playerAttackPoints
+let playerAttackPoints = randomNum(1, 5)
 
 //subtract playerAttackPoints from monsterHealth and update the monsterHealth variable
+monsterHealth -= playerAttackPoints;
 
   //use an alert with string template literals to tell the player: 
   // 1. player attacked monster 
   // 2. how much damage the player did 
   // 3. how much health the monster has 
+  alert(`${playerName} attacked ${monsterName}. Attack caused ${playerAttackPoints} damage. ${monsterName} health is now ${monsterHealth}.`)
 }
 
 function monsterAttack(){
@@ -61,13 +68,13 @@ function playGame() {
 
   //while loop that runs until player or monster's health is <= 0 
   //add the condition in the while loop parentheses 
-  while(){
-    roundNumber++
-   //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
+  // while(){
+  //   roundNumber++
+  //  //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
  
-   //call playRound inside the while loop
+  //  //call playRound inside the while loop
     
-  }
+  // }
   //outside of while loop, declare a winner and use alert to show a win or lose message 
 }
 
