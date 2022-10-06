@@ -23,7 +23,7 @@ function randomNum(min, max) {
 
 function playerAttack(){
 //use randomNum to generate attack points value between 1 - 5 and save the value to a variable named playerAttackPoints
-let playerAttackPoints = randomNum(1, 5)
+let playerAttackPoints = randomNum(1, 6)
 
 //subtract playerAttackPoints from monsterHealth and update the monsterHealth variable
 monsterHealth -= playerAttackPoints;
@@ -37,13 +37,16 @@ monsterHealth -= playerAttackPoints;
 
 function monsterAttack(){
   //use randomNum to generate attack points value between 1 - 5 and save the value to a variable named monsterAttackPoints
+  let monsterAttackPoints = randomNum(1, 6)
 
   //subtract monsterAttackPoints from playerHealth and update the playerHealth variable 
+  playerHealth -= monsterAttackPoints;
 
   //use an alert with string template literals to tell the player: 
   // 1. monster attacked player 
   // 2. how much damage the monster did 
   // 3. how much health the player has 
+  alert(`${monsterName} attacked ${playerName}. Attack caused ${monsterAttackPoints} damage. ${playerName} health is now ${playerHealth}.`)
 }
 
 function playRound() {
@@ -52,6 +55,17 @@ function playRound() {
   //0 = player goes first, 1 = monster goes first
   
   //use if/else to determine who goes first
+  if (randomNum(0, 2)) {
+    monsterAttack();
+    if (playerHealth > 0) {
+      playerAttack();
+    }
+  } else {
+    playerAttack();
+    if (monsterHealth > 0) {
+      monsterAttack()
+    }
+  }
   
   //if player goes first, run playerAttack, then if monsterHealth > 0, run monsterAttack
 
@@ -68,14 +82,17 @@ function playGame() {
 
   //while loop that runs until player or monster's health is <= 0 
   //add the condition in the while loop parentheses 
-  // while(){
-  //   roundNumber++
-  //  //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
- 
-  //  //call playRound inside the while loop
+  while(playerHealth > 0 && monsterHealth > 0){
+    roundNumber++
+   //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
+    alert(`Round #${roundNumber}\n${playerName}'s health is at: ${playerHealth}\n${monsterName}'s health is at: ${monsterHealth}`)
+   //call playRound inside the while loop
+   playRound()
     
-  // }
+  }
   //outside of while loop, declare a winner and use alert to show a win or lose message 
+  playerHealth > 0 ? alert(`${playerName} wins!`) : alert(`${monsterName} won. You have lost.`)
 }
 
 //call playGame to start game
+playGame();
