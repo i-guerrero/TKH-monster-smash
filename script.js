@@ -7,7 +7,7 @@ const playerName = prompt("Please enter your name: ");
 let playerHealth = 15;
 
 //assign a name of a monster (ex 'Werewolf') as a string to a variable named monsterName
-const monsterName = "Demogorgon";
+const monsterName = "scary";
 
 //declare a variable named monsterHealth and set it equal to the number value 15
 let monsterHealth = 15;
