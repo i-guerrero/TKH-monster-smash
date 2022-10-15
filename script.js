@@ -97,8 +97,12 @@ function playGame() {
   }
   //outside of while loop, declare a winner and use alert to show a win or lose message
   playerHealth > 0
-    ? alert(`${playerName} wins!`)
-    : alert(`${monsterName} won. You have lost.`);
+    ? alert(
+        `${playerName} wins! ${playerHealth}'s health was at ${playerHealth}`
+      )
+    : alert(
+        `${monsterName} won. You have lost. ${monsterName}'s health was at ${monsterHealth}`
+      );
 }
 
 //call playGame to start game
